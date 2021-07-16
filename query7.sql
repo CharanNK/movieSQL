@@ -11,7 +11,7 @@ FROM
         JOIN 
         (
             SELECT min(year) AS min_year FROM Movie
-        )view ON 1=1
+        )vw ON 1=1
     )inner_view
     GROUP BY decade
 )outer_view;

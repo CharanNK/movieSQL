@@ -7,3 +7,13 @@ INNER JOIN MOVIE mv ON md.mid = mv.mid
 GROUP BY mv.mid
 HAVING COUNT(*)>=10
 ORDER BY COUNT(*) DESC;
+
+select p.name, vw.movie_count 
+from Person p 
+join 
+(
+select md.pid, count(*) as movie_count 
+from M_Director md 
+group by md.pid 
+having count(*) > 10
+)vw on p.pid = vw.pid;
